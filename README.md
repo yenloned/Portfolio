@@ -3,7 +3,7 @@
 This website is aimed to showcase my portfolio which include Introduction, Experience, Projects, and Contact.
 
 ## Live Demo
-
+[http://rudyyen.info/](http://rudyyen.info/)
 ## Technologies
 **FrontEnd**
 * [NextJS](https://nextjs.org/)
