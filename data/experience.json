@@ -1,0 +1,59 @@
+{
+    "experience":[
+        {
+            "icon_url": "https://media.licdn.com/dms/image/C560BAQEQRCHk4UocLw/company-logo_200_200/0/1661687132463?e=1679529600&v=beta&t=6y1wLjfrSJs23EJrYPoJsfd9csXS462MB5w46OB0MKI",
+            "name": "Civtek",
+            "title": "Software Developer",
+            "mode": "Part-time",
+            "time": "Nov 2022 - Present",
+            "present": true,
+            "location": "Hong Kong SAR, Remote",
+            "techs": ["NextJS", "TailwindCSS", "ExpressJS", "Supabase"],
+            "link": "https://civtek.dev/"
+        },
+        {
+            "icon_url": "https://media.licdn.com/dms/image/C560BAQEFVmE0YlozZA/company-logo_200_200/0/1519869591596?e=1679529600&v=beta&t=-4aH2iZ5rOGjJJtYB-Q7NBXQMGg6-cENBzONLYBOKHU",
+            "name": "USThing",
+            "title": "Web Developer",
+            "mode": "Part-time",
+            "time": "Oct 2022 - Present",
+            "present": true,
+            "location": "Hong Kong SAR, Remote",
+            "techs": ["TypeScript", "NextJS", "CSS"],
+            "link": "https://usthing.xyz/"
+        },
+        {
+            "icon_url": "https://media.licdn.com/dms/image/C560BAQGhk4jCqa2KAA/company-logo_200_200/0/1662557810958?e=1679529600&v=beta&t=312EQZ26aWZTiUWy1zyGrh770JywCyA01Fh4DsmRSQs",
+            "name": "HKUST PathAdvisor",
+            "title": "Backend Developer",
+            "mode": "Part-time",
+            "time": "Sep 2022 - Present",
+            "present": true,
+            "location": "Hong Kong SAR, Remote",
+            "techs": ["NodeJS", "ExpressJS", "MongoDB", "Docker"],
+            "link": "https://pathadvisor.ust.hk/"
+        },
+        {
+            "icon_url": "https://media.licdn.com/dms/image/C560BAQHLkZtHapj2JA/company-logo_200_200/0/1519879530825?e=1679529600&v=beta&t=hCvB3xTOZwVBYeGVtrY7qvj2SlAEjK0j3U79az2z-v0",
+            "name": "ESDLife Digital Solution",
+            "title": "Web Application Developer Intern",
+            "mode": "Internship",
+            "time": "Jun 2022 - Aug 2022",
+            "present": false,
+            "location": "Hong Kong SAR, ON",
+            "techs": ["TypeScript", "NextJS", "SCSS", "GraphQL", "NestJS"],
+            "link": "https://ds.esdlife.com/"
+        },
+        {
+            "icon_url": "",
+            "name": "Cerberus Security Limited",
+            "title": "Associate Security Analyst",
+            "mode": "Part-time",
+            "time": "Jun 2021 - May 2022",
+            "present": false,
+            "location": "Hong Kong SAR, ON",
+            "techs": ["Bash", "Shell Scripting", "Wazuh", "ElasticSearch"],
+            "link": ""
+        }
+    ]
+}

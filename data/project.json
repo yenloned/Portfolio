@@ -1,0 +1,36 @@
+{
+    "project":[
+        {
+            "name": "Auction House",
+            "techs": ["NextJS", "TailwindCSS", "GraphQL", "NestJS", "MongoDB", "Socket.IO"],
+            "tags": ["GraphQL API", "Server Side Rendering", "Fully Responsive", "Real-Time WebSocket", "File Upload", "Scheduled Tasks"],
+            "description": "Auction House is a real-time mock bidding website, which provides fast and real-time bidding functions by GraphQL API and Socket.IO.",
+            "demo_link": "https://auctionhouse-web.netlify.app/",
+            "github_link": "https://github.com/yenloned/AuctionHouse"
+        },
+        {
+            "name": "PiggyBank",
+            "techs": ["ReactJS", "CSS", "ExpressJS", "MySQL"],
+            "tags": ["RESTful API", "CRUD", "Fully Responsive", "Mail Server", "Two Factor Authentication", "Forgot Password"],
+            "description": "PiggyBank is a fully responsive web application, which operates and provides various bank functions by REST API and CRUD Operations.",
+            "demo_link": "https://piggybank-web.netlify.app/",
+            "github_link": "https://github.com/yenloned/PiggyBank"
+        },
+        {
+            "name": "Data Structure and Algorithm Study",
+            "techs": ["C++"],
+            "tags": ["Data Structure", "Algorithm", "Notes"],
+            "description": "It is a collection of the notes and coding of data structures and algorithms, which is aimed to record the practice and study of it. Leetcode questions, famous algorithms, and various usage of data structures will be included.",
+            "demo_link": "",
+            "github_link": "https://github.com/yenloned/Data-Structure-Algorithm-Study"
+        },
+        {
+            "name": "Popcorn Movie Search",
+            "techs": ["HTML", "CSS", "JavaScript"],
+            "tags": ["API Search"],
+            "description": "Popcorn Movie Search is a responsive static website that provides an API Search function for movie searching.",
+            "demo_link": "https://yenloned.github.io/PopcornMovieSearch/",
+            "github_link": "https://github.com/yenloned/PopcornMovieSearch"
+        }
+    ]
+}
