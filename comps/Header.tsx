@@ -28,7 +28,7 @@ const Header = () => {
                         <div className="font-family_body2 text-xl max-w-[500px]">Computer Science Undergrad Student @<a href="https://www.ust.hk/" className='text-blue-500 hover:text-blue-400'>HKUST</a></div>
                         <div className="mockup-code mt-5 text-lg ">
                             <div className="flex gap-[10px]">
-                                <div className='text-green-500 pl-6'>user@user-PC</div> <div className='text-purple-700'>MINGW64</div><div className='text-yellow-400'>~/Desktop/rudyyen.dev</div>
+                                <div className='text-green-500 pl-6'>user@user-PC</div> <div className='text-purple-700'>MINGW64</div><div className='text-yellow-400'>~/Desktop/rudyyen.info</div>
                             </div>
                             <pre data-prefix="$" className='mb-4'><code>npm install rudy-yen-portfolio</code></pre>
                             <pre data-prefix=" ">added 1 package, and audited 0 packages in 0s</pre> 
