@@ -7,7 +7,7 @@ import { Link } from 'react-scroll'
 const Header = () => {
     return(
         <>
-            <div className='mx-1 my-[10vw] md:mx-[22vw]'>
+            <div className='mx-1 my-[10vw] md:mx-[22vw] text-white'>
                 <div className="flex flex-col justify-around md:flex-row">
                     <div className="flex flex-col">
                         <div className='flex gap-1 text-2xl p-1 text-green-500'>

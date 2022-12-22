@@ -35,7 +35,7 @@ const Project = () => {
 
 
     return(
-    <Element name="Project" className='px-[12vw] pt-[6vw] pb-[12vw] bg-background-200'>
+    <Element name="Project" className='px-[12vw] pt-[6vw] pb-[12vw] bg-background-200 text-white'>
         <div className="font-family_header2 text-[2rem] text-center">Projects</div>
         <div className='my-[3vw] mx-[5vw] flex gap-3 flex-wrap'>
         {all_tags_array.map((tag) => {

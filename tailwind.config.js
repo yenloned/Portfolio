@@ -10,7 +10,8 @@ module.exports = {
           300: '#202020',
           400: '#0c0c0c',
         },
-        'black' : '#000000'
+        'black' : '#000000',
+        'white' : '#FFFFFF'
       }
     },
     fontFamily: {

@@ -12,7 +12,7 @@ const Experience = () => {
     }, [])
 
     return (
-        <Element name="Experience" className='px-1 md:px-[25vw] py-[12vw]'>
+        <Element name="Experience" className='px-1 md:px-[25vw] py-[12vw] text-white'>
             <div className="font-family_header2 text-[2rem]">Experience</div>
             <ul className="steps steps-vertical w-full">
                 {experience.experience.map((experience) =>{

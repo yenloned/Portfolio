@@ -6,7 +6,7 @@ const About = () =>{
     const [question_num, setQuestion_num] = useState<number>(4);
 
     return(
-        <Element name="About" className='px-1 md:px-[18vw] py-[12vw] bg-background-200'>
+        <Element name="About" className='px-1 md:px-[18vw] py-[12vw] bg-background-200 text-white'>
             <div className="flex flex-col justify-center gap-[3vw] md:flex-row">
                 <div className='p-5'>
                     <div className="font-family_header2 text-[2rem]">About Me</div>

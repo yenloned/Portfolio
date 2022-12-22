@@ -10,7 +10,7 @@ const Contact = () => {
     }, [])
 
     return(
-        <Element name="Contact" className='px-[25vw] py-[12vw]'>
+        <Element name="Contact" className='px-[25vw] py-[12vw] text-white'>
             <div className="font-family_header3 text-[2rem] text-center">Get in touch</div>
             <div className="font-family_body3 text-xl text-center mt-1">Ask me for anything about my journey, experience, collaboration opportunities, or potential project ideas! You can reach me in...</div>
             <div className="mt-[3vw] flex flex-col gap-[5vw]">
