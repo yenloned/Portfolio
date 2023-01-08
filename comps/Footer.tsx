@@ -3,7 +3,7 @@ import { Link } from "react-scroll"
 const Footer = () => {
     return (
         <>
-            <div className="bg-background-400 flex flex-col px-1 py-6 md:p-24 font-family_body3 text-lg text-zinc-600">
+            <div className="bg-background-400 flex flex-col px-1 py-20 md:p-24 font-family_body3 text-lg text-zinc-600">
                 <div className="flex justify-center">Copyright © 2023 Rudy Yen</div>
                 <div className="flex justify-center">Last Update: 8 Jan 2023</div>
                 <div className="flex justify-between text-white">
