@@ -38,7 +38,7 @@ const About = () =>{
                         <li data-content=" " className="step step-accent">
                             <div className='flex'>
                                 <div className='w-[95px] text-left'>2022 - 2025</div>
-                                BEng in Computer Science @<a href="https://www2.hkuspace.hku.hk/cc/" className='text-blue-500 hover:text-blue-400'>HKUST</a>
+                                BEng in Computer Science @<a href="https://hkust.edu.hk/" className='text-blue-500 hover:text-blue-400'>HKUST</a>
                             </div>
                         </li>
                         <li data-content=" " className="step">
