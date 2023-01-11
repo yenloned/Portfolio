@@ -17,6 +17,14 @@
             "github_link": "https://github.com/yenloned/PiggyBank"
         },
         {
+            "name": "Blackjack",
+            "techs": ["C++"],
+            "tags": ["Object Oriented Programming (OOP)"],
+            "description": "This is a typical 1 on 1 Blackjack game played by the terminal. It is built with C++ Object Oriented Programming (OOP).",
+            "demo_link": "",
+            "github_link": "https://github.com/yenloned/Blackjack"
+        },
+        {
             "name": "Data Structure and Algorithm Study",
             "techs": ["C++"],
             "tags": ["Data Structure", "Algorithm", "Notes"],
