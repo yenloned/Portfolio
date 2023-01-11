@@ -17,20 +17,20 @@
             "github_link": "https://github.com/yenloned/PiggyBank"
         },
         {
-            "name": "Blackjack",
-            "techs": ["C++"],
-            "tags": ["Object Oriented Programming (OOP)"],
-            "description": "This is a typical 1 on 1 Blackjack game played by the terminal. It is built with C++ Object Oriented Programming (OOP).",
-            "demo_link": "",
-            "github_link": "https://github.com/yenloned/Blackjack"
-        },
-        {
             "name": "Data Structure and Algorithm Study",
             "techs": ["C++"],
             "tags": ["Data Structure", "Algorithm", "Notes"],
             "description": "It is a collection of the notes and coding of data structures and algorithms, which is aimed to record the practice and study of it. Leetcode questions, famous algorithms, and various usage of data structures will be included.",
             "demo_link": "",
             "github_link": "https://github.com/yenloned/Data-Structure-Algorithm-Study"
+        },
+        {
+            "name": "Blackjack",
+            "techs": ["C++"],
+            "tags": ["Object Oriented Programming (OOP)"],
+            "description": "This is a typical 1 on 1 Blackjack game played by the terminal. It is built with C++ Object Oriented Programming (OOP).",
+            "demo_link": "",
+            "github_link": "https://github.com/yenloned/Blackjack"
         },
         {
             "name": "Popcorn Movie Search",
