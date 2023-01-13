@@ -38,7 +38,7 @@ const Header = () => {
                         </div>
                     </div>
                     <div className='scale-100 shadow-inner flex justify-center'>
-                        <Image src={demo_me} width="300" height="408" alt=""/>
+                        <Image src={demo_me} width="280" height="408" alt=""/>
                     </div>
                 </div>
                 <div className='flex justify-center mt-8'>
