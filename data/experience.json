@@ -19,7 +19,7 @@
             "time": "Jan 2023 - Present",
             "present": true,
             "location": "Hong Kong SAR, Remote",
-            "techs": ["ReactJS", "CSS"],
+            "techs": ["ReactJS", "CSS", "ExpressJS", "MongoDB"],
             "link": "https://hkust.edu.hk/"
         },
         {
