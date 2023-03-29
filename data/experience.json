@@ -1,7 +1,6 @@
 {
     "experience":[
         {
-            "icon_url": "https://media.licdn.com/dms/image/C560BAQHm2Gt3amRi1w/company-logo_200_200/0/1635401204794?e=1683158400&v=beta&t=4ezEBySe9c-R0kPEsOgMnCtrmvEKcU0VHYsL7xS_1Fs",
             "name": "The Grind Limited",
             "title": "Software Development Intern",
             "mode": "Internship",
@@ -12,7 +11,6 @@
             "link": "https://www.thegrind-app.com/"
         },
         {
-            "icon_url": "https://media.licdn.com/dms/image/C4E0BAQH4YoQ1L_piMg/company-logo_200_200/0/1624249048793?e=1681344000&v=beta&t=zATshwQ8p0vm8oHQANWTIolCytZQXCfc7tFHEZ5x9zk",
             "name": "The Hong Kong University of Science and Technology",
             "title": "Student Helper - Web Application Developer",
             "mode": "Part-time",
@@ -23,7 +21,6 @@
             "link": "https://hkust.edu.hk/"
         },
         {
-            "icon_url": "https://media.licdn.com/dms/image/C560BAQEQRCHk4UocLw/company-logo_200_200/0/1661687132463?e=1679529600&v=beta&t=6y1wLjfrSJs23EJrYPoJsfd9csXS462MB5w46OB0MKI",
             "name": "Civtek",
             "title": "Software Developer",
             "mode": "Part-time",
@@ -34,7 +31,6 @@
             "link": "https://civtek.dev/"
         },
         {
-            "icon_url": "https://media.licdn.com/dms/image/C560BAQEFVmE0YlozZA/company-logo_200_200/0/1519869591596?e=1679529600&v=beta&t=-4aH2iZ5rOGjJJtYB-Q7NBXQMGg6-cENBzONLYBOKHU",
             "name": "USThing",
             "title": "Web Developer",
             "mode": "Part-time",
@@ -45,7 +41,6 @@
             "link": "https://usthing.xyz/"
         },
         {
-            "icon_url": "https://media.licdn.com/dms/image/C560BAQGhk4jCqa2KAA/company-logo_200_200/0/1662557810958?e=1679529600&v=beta&t=312EQZ26aWZTiUWy1zyGrh770JywCyA01Fh4DsmRSQs",
             "name": "HKUST PathAdvisor",
             "title": "Backend Developer",
             "mode": "Part-time",
@@ -56,7 +51,6 @@
             "link": "https://pathadvisor.ust.hk/"
         },
         {
-            "icon_url": "https://media.licdn.com/dms/image/C560BAQHLkZtHapj2JA/company-logo_200_200/0/1519879530825?e=1679529600&v=beta&t=hCvB3xTOZwVBYeGVtrY7qvj2SlAEjK0j3U79az2z-v0",
             "name": "ESDLife Digital Solution",
             "title": "Web Application Developer Intern",
             "mode": "Internship",
@@ -67,7 +61,6 @@
             "link": "https://ds.esdlife.com/"
         },
         {
-            "icon_url": "",
             "name": "Cerberus Security Limited",
             "title": "Associate Security Analyst",
             "mode": "Part-time",

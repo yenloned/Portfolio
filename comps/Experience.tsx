@@ -5,6 +5,7 @@ import Image from 'next/image'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import { ExperienceImage } from "../function/ExperienceImage";
 
 const Experience = () => {
     useEffect(() => {
@@ -21,10 +22,7 @@ const Experience = () => {
                             <a href={experience.link} className='flex flex-col md:flex-row gap-[1rem+1vw] w-full hover:bg-background-300 rounded-lg px-5 py-2 cursor-pointer'>
                                 <div className="avatar">
                                     <div className="w-32 mask mask-squircle">
-                                        {experience.icon_url ? <img src={experience.icon_url} width="256" height="256" />
-                                        :
-                                        <Image src={default_icon_company} width="256" height="256" alt=""/>
-                                        }
+                                        <Image src={ExperienceImage(experience.name)} width="256" height="256" alt=""/>
                                     </div>
                                 </div>
                                 <div className='flex flex-col text-left w-full'>
