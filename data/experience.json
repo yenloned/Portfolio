@@ -4,8 +4,8 @@
             "name": "The Grind Limited",
             "title": "Software Development Intern",
             "mode": "Internship",
-            "time": "Feb 2023 - Present",
-            "present": true,
+            "time": "Feb 2023 - Apr 2023",
+            "present": false,
             "location": "Hong Kong SAR, Remote",
             "techs": ["NextJS", "TailwindCSS", "Strapi"],
             "link": "https://www.thegrind-app.com/"
