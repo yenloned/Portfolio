@@ -24,8 +24,8 @@
             "name": "Civtek",
             "title": "Software Developer",
             "mode": "Part-time",
-            "time": "Nov 2022 - Present",
-            "present": true,
+            "time": "Nov 2022 - Mar 2023",
+            "present": false,
             "location": "Hong Kong SAR, Remote",
             "techs": ["NextJS", "TailwindCSS", "ExpressJS", "Supabase"],
             "link": "https://civtek.dev/"
