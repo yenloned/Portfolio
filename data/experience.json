@@ -1,6 +1,16 @@
 {
     "experience":[
         {
+            "name": "Sleekflow",
+            "title": "Software Engineer Intern",
+            "mode": "Internship",
+            "time": "Jun 2023 - Aug 2023",
+            "present": true,
+            "location": "Hong Kong SAR, ON",
+            "techs": ["NextJS", "TailwindCSS"],
+            "link": "https://sleekflow.io/"
+        },
+        {
             "name": "The Grind Limited",
             "title": "Software Development Intern",
             "mode": "Internship",
@@ -14,8 +24,8 @@
             "name": "The Hong Kong University of Science and Technology",
             "title": "Student Helper - Web Application Developer",
             "mode": "Part-time",
-            "time": "Jan 2023 - Present",
-            "present": true,
+            "time": "Jan 2023 - May 2023",
+            "present": false,
             "location": "Hong Kong SAR, Remote",
             "techs": ["ReactJS", "CSS", "ExpressJS", "MongoDB"],
             "link": "https://hkust.edu.hk/"

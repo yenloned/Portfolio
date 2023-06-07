@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import demo_me from "../media/demo_me.jpg"
 import { Typewriter, useTypewriter, Cursor, TypewriterHelper } from 'react-simple-typewriter'
 import { Link } from 'react-scroll'
 
@@ -36,9 +35,6 @@ const Header = () => {
                             <pre data-prefix=" ">  run `npm fund` for details</pre>
                             <pre data-prefix=" " className='flex'>found <div className="text-green-400">0</div> vulnerabilities </pre>
                         </div>
-                    </div>
-                    <div className='scale-100 shadow-inner flex justify-center'>
-                        <Image src={demo_me} width="282" height="408" alt=""/>
                     </div>
                 </div>
                 <div className='flex justify-center mt-8'>

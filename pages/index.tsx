@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Navbar from '../comps/Navbar'
 import Header from '../comps/Header'
 import About from '../comps/About'
