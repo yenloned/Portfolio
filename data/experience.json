@@ -1,14 +1,28 @@
 {
     "experience":[
         {
+            "name": "FDM Group",
+            "title": "Consultant",
+            "mode": "Full-time",
+            "time": "Jul 2025 - Present",
+            "present": true,
+            "location": "Hong Kong SAR, Hybrid",
+            "techs": ["Java", "Spring Boot", "SQL", "UNIX"],
+            "link": "https://www.fdmgroup.com/",
+            "category": "professional",
+            "description": ""
+        },
+        {
             "name": "USThing",
             "title": "Core Web Developer",
             "mode": "Part-time",
-            "time": "Oct 2022 - Present",
+            "time": "Oct 2022 - Dec 2023",
             "present": true,
             "location": "Hong Kong SAR, Remote",
             "techs": ["TypeScript", "NextJS", "CSS"],
-            "link": "https://usthing.xyz/"
+            "link": "https://usthing.xyz/",
+            "category": "volunteer",
+            "description": "Leading frontend development for a web platform, implementing responsive designs and optimizing user experience. Collaborating with cross-functional teams to deliver high-quality features."
         },
         {
             "name": "Sleekflow",
@@ -16,9 +30,11 @@
             "mode": "Internship",
             "time": "Jun 2023 - Aug 2023",
             "present": false,
-            "location": "Hong Kong SAR, ON",
+            "location": "Hong Kong SAR, Hybrid",
             "techs": ["NextJS", "TailwindCSS"],
-            "link": "https://sleekflow.io/"
+            "link": "https://sleekflow.io/",
+            "category": "professional",
+            "description": "Developed and maintained web applications using modern React frameworks. Implemented responsive designs and collaborated with design teams to create seamless user experiences."
         },
         {
             "name": "HKUST PathAdvisor",
@@ -28,7 +44,9 @@
             "present": false,
             "location": "Hong Kong SAR, Remote",
             "techs": ["NodeJS", "ExpressJS", "MongoDB", "Docker"],
-            "link": "https://pathadvisor.ust.hk/"
+            "link": "https://pathadvisor.ust.hk/",
+            "category": "volunteer",
+            "description": "Built and maintained backend services for HKUST's course planning platform. Implemented RESTful APIs and database management systems to support student course selection."
         },
         {
             "name": "The Grind Limited",
@@ -38,7 +56,9 @@
             "present": false,
             "location": "Hong Kong SAR, Remote",
             "techs": ["NextJS", "TailwindCSS", "Strapi"],
-            "link": "https://www.thegrind-app.com/"
+            "link": "https://www.thegrind-app.com/",
+            "category": "professional",
+            "description": "Contributed to the development of a fitness tracking application. Worked on frontend features and integrated with headless CMS for content management."
         },
         {
             "name": "The Hong Kong University of Science and Technology",
@@ -48,7 +68,9 @@
             "present": false,
             "location": "Hong Kong SAR, Remote",
             "techs": ["ReactJS", "CSS", "ExpressJS", "MongoDB"],
-            "link": "https://hkust.edu.hk/"
+            "link": "https://hkust.edu.hk/",
+            "category": "professional",
+            "description": "Assisted in developing internal web applications for university departments. Created user-friendly interfaces and maintained existing systems."
         },
         {
             "name": "Civtek",
@@ -58,7 +80,9 @@
             "present": false,
             "location": "Hong Kong SAR, Remote",
             "techs": ["NextJS", "TailwindCSS", "ExpressJS", "Supabase"],
-            "link": "https://civtek.dev/"
+            "link": "https://civtek.dev/",
+            "category": "volunteer",
+            "description": "Developed full-stack web applications for various clients. Implemented modern UI/UX designs and integrated with cloud databases."
         },
         {
             "name": "ESDLife Digital Solution",
@@ -68,7 +92,9 @@
             "present": false,
             "location": "Hong Kong SAR, ON",
             "techs": ["TypeScript", "NextJS", "SCSS", "GraphQL", "NestJS"],
-            "link": "https://ds.esdlife.com/"
+            "link": "https://ds.esdlife.com/",
+            "category": "professional",
+            "description": "Worked on enterprise-level web applications using modern TypeScript frameworks. Implemented GraphQL APIs and styled components for better user experience."
         },
         {
             "name": "Cerberus Security Limited",
@@ -78,7 +104,9 @@
             "present": false,
             "location": "Hong Kong SAR, ON",
             "techs": ["Bash", "Shell Scripting", "Wazuh", "ElasticSearch"],
-            "link": ""
+            "link": "",
+            "category": "professional",
+            "description": "Monitored and analyzed security threats using SIEM tools. Developed automation scripts for security operations and incident response."
         }
     ]
 }

@@ -2,70 +2,209 @@ import { Element } from 'react-scroll'
 import experience from "../data/experience.json"
 import default_icon_company from "../media/default_icon_company.png"
 import Image from 'next/image'
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ExperienceImage } from "../function/ExperienceImage";
 
 const Experience = () => {
+    const [activeTab, setActiveTab] = useState('professional');
+    const [visibleItems, setVisibleItems] = useState<number[]>([]);
+
     useEffect(() => {
-        AOS.init({duration: 1500});
-    }, [])
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const index = parseInt(entry.target.getAttribute('data-index') || '0');
+                        setVisibleItems(prev => prev.includes(index) ? prev : [...prev, index]);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        const elements = document.querySelectorAll('.experience-item');
+        elements.forEach((el) => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
+
+    const professionalExperiences = experience.experience.filter(exp => exp.category === 'professional');
+    const volunteerExperiences = experience.experience.filter(exp => exp.category === 'volunteer');
+
+    const getCurrentExperiences = () => {
+        return activeTab === 'professional' ? professionalExperiences : volunteerExperiences;
+    };
 
     return (
-        <Element name="Experience" className='px-1 md:px-[23vw] py-[12vw] text-white'>
-            <div className="font-family_header2 text-[2rem]">Experience</div>
-            <ul className="steps steps-vertical w-full">
-                {experience.experience.map((experience) =>{
-                    return(
-                        <li data-aos="fade-zoom-in" data-content=" " className={experience.present ? "step step-accent py-2" : "step"} key={experience.name}>
-                            <a href={experience.link} className='flex flex-col md:flex-row gap-[1rem+1vw] w-full hover:bg-background-300 rounded-lg px-5 py-2 cursor-pointer'>
-                                <div className="avatar">
-                                    <div className="w-32 mask mask-squircle">
-                                        <Image src={ExperienceImage(experience.name)} width="256" height="256" alt=""/>
-                                    </div>
-                                </div>
-                                <div className='flex flex-col text-left w-full'>
-                                    <div className='flex flex-col md:flex-row justify-between'>
-                                        <div className='font-family_header2 text-xl'>{experience.name}</div>
-                                        <div className='flex gap-1'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-7">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                                            </svg> <div className='font-family_body2 text-lg'>{experience.location}</div>
+        <Element name="Experience" className='relative py-20 px-4 md:px-8 lg:px-16 bg-gradient-dark'>
+            {/* Background decoration */}
+            <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+                <div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-l from-transparent via-purple-500/20 to-transparent"></div>
+            </div>
+
+            <div className="max-w-7xl mx-auto">
+                {/* Section Header */}
+                <div className="text-center mb-16">
+                    <h2 className="gradient-text font-family_header2 text-4xl md:text-5xl font-bold mb-4">
+                        Experience
+                    </h2>
+                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+                    <p className="text-gray-400 mt-6 text-lg max-w-2xl mx-auto">
+                        My professional journey and contributions to the community
+                    </p>
+                </div>
+
+                {/* Tab Navigation */}
+                <div className="flex justify-center mb-12">
+                    <div className="glass rounded-2xl p-2 flex gap-2">
+                        <button
+                            onClick={() => setActiveTab('professional')}
+                            className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                                activeTab === 'professional'
+                                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-glow'
+                                    : 'text-gray-400 hover:text-white hover:bg-background-300'
+                            }`}
+                        >
+                            <div className="flex items-center gap-2">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6" />
+                                </svg>
+                                Professional Work ({professionalExperiences.length})
+                            </div>
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('volunteer')}
+                            className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                                activeTab === 'volunteer'
+                                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-glow'
+                                    : 'text-gray-400 hover:text-white hover:bg-background-300'
+                            }`}
+                        >
+                            <div className="flex items-center gap-2">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                                Volunteer & Extracurricular ({volunteerExperiences.length})
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                {/* Experience Cards Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {getCurrentExperiences().map((exp, index) => (
+                        <div
+                            key={exp.name}
+                            data-index={index}
+                            className={`experience-item transition-all duration-1000 ${
+                                visibleItems.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                            }`}
+                        >
+                            <div className="group glass rounded-2xl p-6 hover:shadow-glow transition-all duration-300 transform hover:scale-105 h-full">
+                                {/* Header with Logo and Info */}
+                                <div className="flex items-start gap-4 mb-4">
+                                    <div className="relative">
+                                        <div className="w-16 h-16 rounded-xl overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20 p-1">
+                                            <Image 
+                                                src={ExperienceImage(exp.name)} 
+                                                width="64" 
+                                                height="64" 
+                                                alt={exp.name}
+                                                className="w-full h-full object-cover rounded-lg"
+                                            />
                                         </div>
-                                        
+                                        {exp.present && (
+                                            <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                                            </div>
+                                        )}
                                     </div>
-                                    <div className='flex flex-col md:flex-row justify-between'>
-                                        <div className='font-family_header3 text-lg'>{experience.title}</div>
-                                        <div className='flex gap-1'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-6">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                                            </svg> <div className='font-family_body2 text-md'>{experience.time}</div>
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-col md:flex-row justify-between'>
-                                        <div className='flex flex-col md:flex-row gap-2 mt-2'>
-                                            {experience.techs.map((tech) => {
-                                            return(
-                                                <span className="badge">{tech}</span>
-                                            )
-                                            })}
-                                        </div>
-                                        <div className='flex gap-1 text-zinc-400'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-5">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+                                    
+                                    <div className="flex-1">
+                                        <h3 className="font-family_header2 text-xl font-bold text-white mb-1 group-hover:text-blue-400 transition-colors">
+                                            {exp.name}
+                                        </h3>
+                                        <p className="text-blue-400 font-semibold mb-2">{exp.title}</p>
+                                        <div className="flex items-center gap-2 text-sm text-gray-400">
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                             </svg>
-                                            <div className='italic'>{experience.mode}</div>
+                                            {exp.location}
                                         </div>
                                     </div>
                                 </div>
-                            </a>
-                        </li>
-                    )
-                })}
-            </ul>
+
+                                {/* Description */}
+                                <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                                    {exp.description}
+                                </p>
+
+                                {/* Time and Mode */}
+                                <div className="flex items-center justify-between mb-4">
+                                    <div className="flex items-center gap-2 text-sm text-gray-400">
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                        {exp.time}
+                                    </div>
+                                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                                        exp.mode === 'Part-time' ? 'bg-blue-500/20 text-blue-400' :
+                                        exp.mode === 'Internship' ? 'bg-purple-500/20 text-purple-400' :
+                                        exp.mode === 'Full-time' ? 'bg-green-500/20 text-green-400' :
+                                        'bg-orange-500/20 text-orange-400'
+                                    }`}>
+                                        {exp.mode}
+                                    </span>
+                                </div>
+
+                                {/* Technologies */}
+                                <div className="flex flex-wrap gap-2 mb-4">
+                                    {exp.techs.map((tech, techIndex) => (
+                                        <span 
+                                            key={techIndex}
+                                            className="px-3 py-1 bg-background-300 rounded-full text-xs font-medium text-gray-300 border border-gray-600 hover:border-blue-500 hover:text-blue-400 transition-colors"
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                {/* Link */}
+                                {exp.link && (
+                                    <a 
+                                        href={exp.link} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium"
+                                    >
+                                        Visit Website
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                        </svg>
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Empty State */}
+                {getCurrentExperiences().length === 0 && (
+                    <div className="text-center py-12">
+                        <div className="w-24 h-24 bg-background-300 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg className="w-12 h-12 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                        <h3 className="text-xl font-semibold text-gray-300 mb-2">No {activeTab === 'professional' ? 'Professional' : 'Volunteer'} Experience Yet</h3>
+                        <p className="text-gray-500">Check back soon for updates!</p>
+                    </div>
+                )}
+            </div>
         </Element>
     )
 }
+
 export default Experience;

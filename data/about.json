@@ -1,10 +1,6 @@
 {
     "about": [
     {
-        "question": "Who's your favorite artist?",
-        "answer": "Hins Cheung."
-    },
-    {
         "question": "When you started programming?",
         "answer": "To be precise, since 2020."
     },
@@ -13,48 +9,24 @@
         "answer": "I found interest in software engineering during my major in Information Security and therefore decided to focus on this aspect."
     },
     {
-        "question": "How long have you learned singing?",
-        "answer": "Since the summer of 2021."
-    },
-    {
         "question": "What's your favorite framework?",
         "answer": "NextJS."
     },
     {
-        "question": "What's your most hated programming language?",
-        "answer": "PHP."
+        "question": "What's your tech stack?",
+        "answer": "Java, Python, C++, JavaScript, TypeScript, C#, SQL, Bash Scripting..."
     },
     {
         "question": "Any advice for your past self?",
-        "answer": "Don't go to HKUST."
+        "answer": "Deepen your knowledge and skills."
     },
     {
         "question": "What you do in your leisure time?",
-        "answer": "Singing, Hangout w/ friends, Watching YouTube/Twitch/Netflix..."
+        "answer": "Play music, working on my projects, and learning new things."
     },
     {
         "question": "What music are you into?",
-        "answer": "Pop, Lofi, Acoustic, Alternative Rock."
-    },
-    {
-        "question": "Dogs or Cats?",
-        "answer": "Both."
-    },
-    {
-        "question": "Why you make this section?",
-        "answer": "Idk, it looks cool."
-    },
-    {
-        "question": "What sports do you like?",
-        "answer": "Bouldering and Badminton."
-    },
-    {
-        "question": "What's your favorite food?",
-        "answer": "Sushi, Tea egg, Fried squid..."
-    },
-    {
-        "question": "Who do you think will see this?",
-        "answer": "You."
+        "answer": "Pop, Acoustic, Alternative Rock."
     },
     {
         "question": "How relevant/updated is this website?",
@@ -62,7 +34,7 @@
     },
     {
         "question": "Any reason to reach out?",
-        "answer": "I need friends :("
+        "answer": "You are looking for a software engineer."
     }
     ]
 }

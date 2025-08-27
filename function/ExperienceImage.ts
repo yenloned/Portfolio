@@ -6,9 +6,12 @@ import USThing from "../media/experience/USThing.jpg"
 import HKUSTPathAdvisor from "../media/experience/HKUSTPathAdvisor.jpg"
 import ESDLife from "../media/experience/ESDLife.jpg"
 import Others from "../media/experience/default_icon_company.png"
+import FDMGroup from "../media/experience/FDMGroup.jpg"
 
 export const ExperienceImage = (companyName: string) => {
     switch(companyName){
+        case "FDM Group":
+            return FDMGroup;
         case "Sleekflow":
             return Sleekflow
         case "The Grind Limited":

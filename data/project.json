@@ -1,6 +1,13 @@
 {
     "project":[
         {
+            "name": "Benchmark Analysis Engine",
+            "techs": ["Pyhton", "Pandas", "Matplotlib", "Tkinter"],
+            "tags": ["Finance", "Stock Analysis", "Tkinter GUI", "File Export"],
+            "description": "A comprehensive desktop application for stock portfolio analysis and benchmark comparison.",
+            "github_link": "https://github.com/yenloned/Benchmark-Analytics-Engine"
+        },
+        {
             "name": "Auction House",
             "techs": ["NextJS", "TailwindCSS", "GraphQL", "NestJS", "MongoDB", "Socket.IO"],
             "tags": ["GraphQL API", "Server Side Rendering", "Fully Responsive", "Real-Time WebSocket", "File Upload", "Scheduled Tasks"],
