@@ -10,6 +10,9 @@ const Experience = () => {
     const [visibleItems, setVisibleItems] = useState<number[]>([]);
 
     useEffect(() => {
+        // Reset visible items when tab changes
+        setVisibleItems([]);
+        
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -26,7 +29,7 @@ const Experience = () => {
         elements.forEach((el) => observer.observe(el));
 
         return () => observer.disconnect();
-    }, []);
+    }, [activeTab]);
 
     const professionalExperiences = experience.experience.filter(exp => exp.category === 'professional');
     const volunteerExperiences = experience.experience.filter(exp => exp.category === 'volunteer');

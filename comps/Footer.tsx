@@ -1,8 +1,13 @@
 import { Link } from "react-scroll"
+import { useState, useEffect } from "react"
 
 const Footer = () => {
-    const currentYear = new Date().getFullYear();
+    const [currentYear, setCurrentYear] = useState("");
     const lastUpdate = "27 Aug 2025";
+
+    useEffect(() => {
+        setCurrentYear(new Date().getFullYear().toString());
+    }, []);
 
     return (
         <>
@@ -110,7 +115,7 @@ const Footer = () => {
                         <div className="border-t border-gray-700 pt-8">
                             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                                 <div className="text-gray-400 font-family_body2">
-                                    © {currentYear} Rudy Yen. All rights reserved.
+                                    © {currentYear || new Date().getFullYear()} Rudy Yen. All rights reserved.
                                 </div>
                                 <div className="text-gray-500 font-family_body2 text-sm">
                                     Last Update: {lastUpdate}

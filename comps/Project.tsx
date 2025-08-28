@@ -9,6 +9,9 @@ const Project = () => {
     const [visibleProjects, setVisibleProjects] = useState<number[]>([]);
 
     useEffect(() => {
+        // Reset visible projects when filter changes
+        setVisibleProjects([]);
+        
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -25,7 +28,7 @@ const Project = () => {
         elements.forEach((el) => observer.observe(el));
 
         return () => observer.disconnect();
-    }, []);
+    }, [finding_tag]);
 
     let all_tags_map = new Map();
     project.project.map((project) => {
