@@ -1,6 +1,13 @@
 {
     "project":[
         {
+            "name": "To You, Coco",
+            "techs": ["C#", "Unity", "LLM API", "FL Stduio"],
+            "tags": ["Video Game", "Pixel Art", "Music Production", "AI"],
+            "description": "Final Year Project, 2D, 8-bit narrative-driven adventure game that blends classic gameplay with modern storytelling and AI integration.",
+            "demo_link": "https://www.youtube.com/watch?v=4fv1BB7r2mo&ab_channel=RudyYen"
+        },
+        {
             "name": "Benchmark Analysis Engine",
             "techs": ["Pyhton", "Pandas", "Matplotlib", "Tkinter"],
             "tags": ["Finance", "Stock Analysis", "Tkinter GUI", "File Export"],

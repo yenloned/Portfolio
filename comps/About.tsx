@@ -33,6 +33,25 @@ const About = () =>{
                 <div className="glowing-dot"></div>
                 <div className="glowing-dot"></div>
             </div>
+            <div className="animated-lines">
+                <div className="animated-line"></div>
+                <div className="animated-line"></div>
+                <div className="animated-line"></div>
+                <div className="animated-line"></div>
+            </div>
+            <div className="floating-squares">
+                <div className="floating-square"></div>
+                <div className="floating-square"></div>
+                <div className="floating-square"></div>
+                <div className="floating-square"></div>
+                <div className="floating-square"></div>
+            </div>
+            <div className="pulsing-circles">
+                <div className="pulsing-circle"></div>
+                <div className="pulsing-circle"></div>
+                <div className="pulsing-circle"></div>
+                <div className="pulsing-circle"></div>
+            </div>
             {/* Background decoration */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>

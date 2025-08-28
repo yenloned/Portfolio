@@ -79,6 +79,25 @@ const Contact = () => {
                 <div className="glowing-dot"></div>
                 <div className="glowing-dot"></div>
             </div>
+            <div className="animated-lines">
+                <div className="animated-line"></div>
+                <div className="animated-line"></div>
+                <div className="animated-line"></div>
+                <div className="animated-line"></div>
+            </div>
+            <div className="floating-squares">
+                <div className="floating-square"></div>
+                <div className="floating-square"></div>
+                <div className="floating-square"></div>
+                <div className="floating-square"></div>
+                <div className="floating-square"></div>
+            </div>
+            <div className="pulsing-circles">
+                <div className="pulsing-circle"></div>
+                <div className="pulsing-circle"></div>
+                <div className="pulsing-circle"></div>
+                <div className="pulsing-circle"></div>
+            </div>
             <div className="geometric-bg">
                 <div className="geometric-shape"></div>
                 <div className="geometric-shape"></div>

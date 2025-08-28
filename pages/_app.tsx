@@ -14,6 +14,48 @@ export default function App({ Component, pageProps }: AppProps) {
         <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet" />
     </Head>
+    {/* Global animated background elements */}
+    <div className="global-quantum-particles">
+      {/* Quantum particles */}
+      <div className="quantum-particle"></div>
+      <div className="quantum-particle"></div>
+      <div className="quantum-particle"></div>
+      <div className="quantum-particle"></div>
+      <div className="quantum-particle"></div>
+      <div className="quantum-particle"></div>
+      <div className="quantum-particle"></div>
+      <div className="quantum-particle"></div>
+      <div className="quantum-particle"></div>
+      <div className="quantum-particle"></div>
+      
+      {/* Quantum wave functions */}
+      <div className="wave-function"></div>
+      <div className="wave-function"></div>
+      <div className="wave-function"></div>
+      <div className="wave-function"></div>
+      <div className="wave-function"></div>
+      
+      {/* Quantum tunneling effects */}
+      <div className="tunnel-effect"></div>
+      <div className="tunnel-effect"></div>
+      <div className="tunnel-effect"></div>
+      <div className="tunnel-effect"></div>
+      <div className="tunnel-effect"></div>
+      
+      {/* Quantum entanglement lines */}
+      <div className="entanglement-line"></div>
+      <div className="entanglement-line"></div>
+      <div className="entanglement-line"></div>
+      <div className="entanglement-line"></div>
+      <div className="entanglement-line"></div>
+      
+      {/* Quantum probability clouds */}
+      <div className="probability-cloud"></div>
+      <div className="probability-cloud"></div>
+      <div className="probability-cloud"></div>
+      <div className="probability-cloud"></div>
+      <div className="probability-cloud"></div>
+    </div>
     <Component {...pageProps} />
   </>
 }

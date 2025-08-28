@@ -4,9 +4,12 @@ import Blackjack from "../media/Blackjack.jpg"
 import DSA from "../media/DSA.jpg"
 import PopcornMovieSearch from "../media/PopcornMovieSearch.png"
 import BenchmarkAnalysisEngine from "../media/BenchmarkAnalysisEngine.jpg"
+import ToYouCoco from "../media/ToYouCoco.png"
 
 export const ProjectImage = (project: string) => {
     switch(project){
+        case "To You, Coco":
+            return ToYouCoco;
         case "Benchmark Analysis Engine":
             return BenchmarkAnalysisEngine;
         case "Auction House":

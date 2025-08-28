@@ -12,33 +12,9 @@ const Header = () => {
 
     return(
         <>
-            <div className='relative min-h-screen flex items-center justify-center overflow-hidden animated-bg'>
-                {/* Dynamic Background Elements */}
-                <div className="gradient-mesh"></div>
-                <div className="floating-orbs">
-                    <div className="orb"></div>
-                    <div className="orb"></div>
-                    <div className="orb"></div>
-                    <div className="orb"></div>
-                </div>
-                <div className="geometric-bg">
-                    <div className="geometric-shape"></div>
-                    <div className="geometric-shape"></div>
-                    <div className="geometric-shape"></div>
-                    <div className="geometric-shape"></div>
-                </div>
-                <div className="wave-bg">
-                    <div className="wave"></div>
-                    <div className="wave"></div>
-                    <div className="wave"></div>
-                </div>
-                <div className="glowing-dots">
-                    <div className="glowing-dot"></div>
-                    <div className="glowing-dot"></div>
-                    <div className="glowing-dot"></div>
-                    <div className="glowing-dot"></div>
-                    <div className="glowing-dot"></div>
-                </div>
+            <div className='relative min-h-screen flex items-center justify-center overflow-hidden'>
+                {/* Background gradient */}
+                <div className="absolute inset-0 bg-gradient-dark opacity-90"></div>
                 
                 {/* Animated background gradient */}
                 <div className="absolute inset-0 bg-gradient-dark opacity-90"></div>
@@ -46,7 +22,7 @@ const Header = () => {
                 <div className={`relative z-10 mx-4 md:mx-auto max-w-6xl text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
                     {/* Main title with gradient effect */}
-                    <div className="mt-16">
+                    <div className="mt-20">
                         <h1 className="gradient-text font-family_header2 text-5xl md:text-7xl lg:text-8xl font-bold mb-4 animate-fade-in">
                             Rudy Yen
                         </h1>
@@ -122,12 +98,17 @@ const Header = () => {
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
                         </Link>
                         
-                        <a 
-                            href="#contact" 
+                        <Link 
+                            activeClass="text-slate-50 duration-200" 
+                            to="Contact" 
+                            spy={true} 
+                            smooth={true} 
+                            offset={50} 
+                            duration={500}
                             className="group px-8 py-3 border-2 border-blue-500 rounded-lg font-semibold text-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300 transform hover:scale-105"
                         >
                             Get In Touch
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Scroll indicator */}

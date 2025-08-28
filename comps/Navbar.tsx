@@ -33,15 +33,19 @@ const Navbar = () => {
         <>
             <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
                 navBar 
-                    ? "glass backdrop-blur-md border-b border-gray-700/50" 
+                    ? "bg-background-400/80 backdrop-blur-sm border-b border-gray-700/30" 
                     : "bg-transparent"
-            } animated-bg`}>
-                {/* Dynamic Background Elements for Navbar */}
-                <div className="gradient-mesh"></div>
-                <div className="floating-orbs">
-                    <div className="orb"></div>
-                    <div className="orb"></div>
-                </div>
+            }`}>
+                {/* Dynamic Background Elements for Navbar - only show when not scrolled */}
+                {!navBar && (
+                    <>
+                        <div className="gradient-mesh opacity-30"></div>
+                        <div className="floating-orbs opacity-20">
+                            <div className="orb"></div>
+                            <div className="orb"></div>
+                        </div>
+                    </>
+                )}
                 <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
                     <div className={`flex items-center justify-between py-4 transition-all duration-500 ${
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
@@ -57,10 +61,16 @@ const Navbar = () => {
                                 className="group cursor-pointer"
                             >
                                 <div className="flex items-center gap-2">
-                                    <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <div className={`w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${
+                                        navBar ? 'opacity-80' : 'opacity-100'
+                                    }`}>
                                         <span className="text-white font-bold text-sm">RY</span>
                                     </div>
-                                    <span className="font-family_header2 text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                                    <span className={`font-family_header2 text-xl font-bold transition-colors ${
+                                        navBar 
+                                            ? 'text-gray-300 group-hover:text-gray-200' 
+                                            : 'text-white group-hover:text-blue-400'
+                                    }`}>
                                         Rudy Yen
                                     </span>
                                 </div>
@@ -72,17 +82,25 @@ const Navbar = () => {
                             {navItems.map((item, index) => (
                                 <Link
                                     key={item.name}
-                                    activeClass="text-blue-400 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-blue-500 after:to-purple-500 after:animate-pulse"
+                                    activeClass={`relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-blue-500 after:to-purple-500 after:animate-pulse ${
+                                        navBar ? 'text-blue-300' : 'text-blue-400'
+                                    }`}
                                     to={item.to}
                                     spy={true}
                                     smooth={true}
                                     offset={50}
                                     duration={500}
-                                    className="group relative font-family_header2 text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer py-2"
+                                    className={`group relative font-family_header2 transition-colors duration-300 cursor-pointer py-2 ${
+                                        navBar 
+                                            ? 'text-gray-400 hover:text-gray-200' 
+                                            : 'text-gray-300 hover:text-white'
+                                    }`}
                                     style={{animationDelay: `${index * 0.1}s`}}
                                 >
                                     {item.name}
-                                    <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+                                    <div className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300 ${
+                                        navBar ? 'opacity-60' : 'opacity-100'
+                                    }`}></div>
                                 </Link>
                             ))}
                         </nav>

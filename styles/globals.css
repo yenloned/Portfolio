@@ -166,48 +166,419 @@ a {
               linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899) border-box;
 }
 
-/* Enhanced Particle background */
-.particles {
-  position: absolute;
+/* Remove all existing animated background styles and replace with quantum particle effects theme */
+
+/* Global quantum background elements - applied to body */
+body::before {
+  content: '';
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  z-index: -2;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.6) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.6) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 255, 128, 0.6) 0%, transparent 50%),
+    radial-gradient(circle at 90% 90%, rgba(255, 128, 0, 0.6) 0%, transparent 50%);
+  animation: quantum-field-shift 6s ease-in-out infinite;
+}
+
+/* Global quantum background elements */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: -1;
+  pointer-events: none;
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(0, 255, 255, 0.3) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(255, 0, 255, 0.3) 50%, transparent 70%),
+    linear-gradient(90deg, transparent 30%, rgba(0, 255, 128, 0.3) 50%, transparent 70%);
+  animation: quantum-wave-function 4s ease-in-out infinite;
 }
 
-.particle {
+/* Global quantum particles container */
+body > .global-quantum-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Quantum particles - MUCH BIGGER AND FASTER */
+.global-quantum-particles .quantum-particle {
   position: absolute;
-  width: 3px;
-  height: 3px;
-  background: #3b82f6;
+  width: 20px;
+  height: 20px;
+  background: #00ffff;
   border-radius: 50%;
-  animation: particle-float 8s infinite linear;
-  box-shadow: 0 0 6px rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 1);
+  animation: quantum-superposition 3s infinite ease-in-out;
 }
 
-.particle:nth-child(2n) {
-  background: #8b5cf6;
-  box-shadow: 0 0 6px rgba(139, 92, 246, 0.6);
-  animation-duration: 10s;
+.global-quantum-particles .quantum-particle:nth-child(1) {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+  background: #00ffff;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 1);
 }
 
-.particle:nth-child(3n) {
-  background: #ec4899;
-  box-shadow: 0 0 6px rgba(236, 72, 153, 0.6);
-  animation-duration: 12s;
+.global-quantum-particles .quantum-particle:nth-child(2) {
+  top: 20%;
+  right: 20%;
+  animation-delay: 0.5s;
+  background: #ff00ff;
+  box-shadow: 0 0 40px rgba(255, 0, 255, 1);
 }
 
-.particle:nth-child(4n) {
-  background: #f59e0b;
-  box-shadow: 0 0 6px rgba(245, 158, 11, 0.6);
-  animation-duration: 14s;
+.global-quantum-particles .quantum-particle:nth-child(3) {
+  top: 60%;
+  left: 25%;
+  animation-delay: 1s;
+  background: #00ff80;
+  box-shadow: 0 0 40px rgba(0, 255, 128, 1);
 }
 
-@keyframes particle-float {
+.global-quantum-particles .quantum-particle:nth-child(4) {
+  top: 70%;
+  right: 30%;
+  animation-delay: 1.5s;
+  background: #ff8000;
+  box-shadow: 0 0 40px rgba(255, 128, 0, 1);
+}
+
+.global-quantum-particles .quantum-particle:nth-child(5) {
+  top: 40%;
+  left: 60%;
+  animation-delay: 2s;
+  background: #8000ff;
+  box-shadow: 0 0 40px rgba(128, 0, 255, 1);
+}
+
+.global-quantum-particles .quantum-particle:nth-child(6) {
+  top: 80%;
+  left: 45%;
+  animation-delay: 2.5s;
+  background: #ffff00;
+  box-shadow: 0 0 40px rgba(255, 255, 0, 1);
+}
+
+.global-quantum-particles .quantum-particle:nth-child(7) {
+  top: 30%;
+  right: 50%;
+  animation-delay: 0.25s;
+  background: #00ffff;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 1);
+}
+
+.global-quantum-particles .quantum-particle:nth-child(8) {
+  top: 50%;
+  right: 15%;
+  animation-delay: 0.75s;
+  background: #ff00ff;
+  box-shadow: 0 0 40px rgba(255, 0, 255, 1);
+}
+
+.global-quantum-particles .quantum-particle:nth-child(9) {
+  top: 15%;
+  left: 70%;
+  animation-delay: 1.25s;
+  background: #00ff80;
+  box-shadow: 0 0 40px rgba(0, 255, 128, 1);
+}
+
+.global-quantum-particles .quantum-particle:nth-child(10) {
+  top: 85%;
+  right: 60%;
+  animation-delay: 1.75s;
+  background: #ff8000;
+  box-shadow: 0 0 40px rgba(255, 128, 0, 1);
+}
+
+/* Quantum wave functions - BIGGER AND FASTER */
+.global-quantum-particles .wave-function {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 4px solid rgba(0, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: quantum-wave-expansion 5s infinite ease-in-out;
+}
+
+.global-quantum-particles .wave-function:nth-child(11) {
+  top: 25%;
+  left: 20%;
+  animation-delay: 0s;
+  border-color: rgba(0, 255, 255, 0.8);
+}
+
+.global-quantum-particles .wave-function:nth-child(12) {
+  top: 55%;
+  right: 25%;
+  animation-delay: 1s;
+  border-color: rgba(255, 0, 255, 0.8);
+}
+
+.global-quantum-particles .wave-function:nth-child(13) {
+  top: 75%;
+  left: 30%;
+  animation-delay: 2s;
+  border-color: rgba(0, 255, 128, 0.8);
+}
+
+.global-quantum-particles .wave-function:nth-child(14) {
+  top: 35%;
+  right: 40%;
+  animation-delay: 3s;
+  border-color: rgba(255, 128, 0, 0.8);
+}
+
+.global-quantum-particles .wave-function:nth-child(15) {
+  top: 65%;
+  left: 50%;
+  animation-delay: 4s;
+  border-color: rgba(128, 0, 255, 0.8);
+}
+
+/* Quantum tunneling effects - BIGGER AND FASTER */
+.global-quantum-particles .tunnel-effect {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.7) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: quantum-tunneling 4s infinite ease-in-out;
+}
+
+.global-quantum-particles .tunnel-effect:nth-child(16) {
+  top: 20%;
+  left: 40%;
+  animation-delay: 0.5s;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.7) 0%, transparent 70%);
+}
+
+.global-quantum-particles .tunnel-effect:nth-child(17) {
+  top: 60%;
+  right: 35%;
+  animation-delay: 1.5s;
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.7) 0%, transparent 70%);
+}
+
+.global-quantum-particles .tunnel-effect:nth-child(18) {
+  top: 40%;
+  left: 80%;
+  animation-delay: 2.5s;
+  background: radial-gradient(circle, rgba(0, 255, 128, 0.7) 0%, transparent 70%);
+}
+
+.global-quantum-particles .tunnel-effect:nth-child(19) {
+  top: 80%;
+  right: 20%;
+  animation-delay: 3.5s;
+  background: radial-gradient(circle, rgba(255, 128, 0, 0.7) 0%, transparent 70%);
+}
+
+.global-quantum-particles .tunnel-effect:nth-child(20) {
+  top: 10%;
+  right: 60%;
+  animation-delay: 4.5s;
+  background: radial-gradient(circle, rgba(128, 0, 255, 0.7) 0%, transparent 70%);
+}
+
+/* Quantum entanglement lines - THICKER AND FASTER */
+.global-quantum-particles .entanglement-line {
+  position: absolute;
+  height: 6px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 1), transparent);
+  animation: quantum-entanglement 6s infinite linear;
+}
+
+.global-quantum-particles .entanglement-line:nth-child(21) {
+  top: 30%;
+  left: 10%;
+  width: 400px;
+  animation-delay: 0s;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 1), transparent);
+}
+
+.global-quantum-particles .entanglement-line:nth-child(22) {
+  top: 50%;
+  right: 10%;
+  width: 350px;
+  animation-delay: 1s;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 1), transparent);
+}
+
+.global-quantum-particles .entanglement-line:nth-child(23) {
+  top: 70%;
+  left: 20%;
+  width: 380px;
+  animation-delay: 2s;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 128, 1), transparent);
+}
+
+.global-quantum-particles .entanglement-line:nth-child(24) {
+  top: 20%;
+  right: 30%;
+  width: 300px;
+  animation-delay: 3s;
+  background: linear-gradient(90deg, transparent, rgba(255, 128, 0, 1), transparent);
+}
+
+.global-quantum-particles .entanglement-line:nth-child(25) {
+  top: 80%;
+  right: 50%;
+  width: 420px;
+  animation-delay: 4s;
+  background: linear-gradient(90deg, transparent, rgba(128, 0, 255, 1), transparent);
+}
+
+/* Quantum probability clouds - BIGGER AND FASTER */
+.global-quantum-particles .probability-cloud {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.6) 0%, rgba(0, 255, 255, 0.2) 50%, transparent 100%);
+  border-radius: 50%;
+  animation: quantum-probability 8s infinite ease-in-out;
+}
+
+.global-quantum-particles .probability-cloud:nth-child(26) {
+  top: 15%;
+  left: 55%;
+  animation-delay: 0.25s;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.6) 0%, rgba(0, 255, 255, 0.2) 50%, transparent 100%);
+}
+
+.global-quantum-particles .probability-cloud:nth-child(27) {
+  top: 45%;
+  right: 15%;
+  animation-delay: 1.25s;
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.6) 0%, rgba(255, 0, 255, 0.2) 50%, transparent 100%);
+}
+
+.global-quantum-particles .probability-cloud:nth-child(28) {
+  top: 75%;
+  left: 15%;
+  animation-delay: 2.25s;
+  background: radial-gradient(circle, rgba(0, 255, 128, 0.6) 0%, rgba(0, 255, 128, 0.2) 50%, transparent 100%);
+}
+
+.global-quantum-particles .probability-cloud:nth-child(29) {
+  top: 25%;
+  right: 70%;
+  animation-delay: 3.25s;
+  background: radial-gradient(circle, rgba(255, 128, 0, 0.6) 0%, rgba(255, 128, 0, 0.2) 50%, transparent 100%);
+}
+
+.global-quantum-particles .probability-cloud:nth-child(30) {
+  top: 55%;
+  left: 70%;
+  animation-delay: 4.25s;
+  background: radial-gradient(circle, rgba(128, 0, 255, 0.6) 0%, rgba(128, 0, 255, 0.2) 50%, transparent 100%);
+}
+
+/* Keyframe animations - MUCH FASTER AND MORE DRAMATIC */
+@keyframes quantum-field-shift {
+  0%, 100% {
+    background-position: 0% 0%, 100% 100%, 50% 50%, 100% 0%;
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    background-position: 100% 0%, 0% 100%, 100% 50%, 0% 100%;
+    transform: scale(1.4) rotate(90deg);
+  }
+  50% {
+    background-position: 100% 100%, 0% 0%, 50% 100%, 100% 100%;
+    transform: scale(0.6) rotate(180deg);
+  }
+  75% {
+    background-position: 0% 100%, 100% 0%, 0% 50%, 0% 0%;
+    transform: scale(1.3) rotate(270deg);
+  }
+}
+
+@keyframes quantum-wave-function {
+  0%, 100% {
+    opacity: 0.5;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    opacity: 1;
+    transform: rotate(90deg) scale(1.5);
+  }
+  50% {
+    opacity: 0.7;
+    transform: rotate(180deg) scale(0.5);
+  }
+  75% {
+    opacity: 1;
+    transform: rotate(270deg) scale(1.4);
+  }
+}
+
+@keyframes quantum-superposition {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.9;
+  }
+  25% {
+    transform: translateY(-80px) translateX(60px) scale(2);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-160px) translateX(-40px) scale(0.3);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateY(-40px) translateX(100px) scale(1.8);
+    opacity: 1;
+  }
+}
+
+@keyframes quantum-wave-expansion {
+  0%, 100% {
+    transform: scale(0.2);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 1;
+  }
+}
+
+@keyframes quantum-tunneling {
+  0%, 100% {
+    transform: scale(0.3) translateY(0px);
+    opacity: 0.4;
+  }
+  25% {
+    transform: scale(1.8) translateY(-60px);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.6) translateY(-120px);
+    opacity: 0.6;
+  }
+  75% {
+    transform: scale(2.2) translateY(-60px);
+    opacity: 1;
+  }
+}
+
+@keyframes quantum-entanglement {
   0% {
-    transform: translateY(100vh) rotate(0deg);
+    transform: translateX(-100%);
     opacity: 0;
   }
   10% {
@@ -217,340 +588,44 @@ a {
     opacity: 1;
   }
   100% {
-    transform: translateY(-100px) rotate(360deg);
+    transform: translateX(100vw);
     opacity: 0;
   }
 }
 
-/* Glowing dots */
-.glowing-dots {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.glowing-dot {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #3b82f6;
-  border-radius: 50%;
-  animation: glow-pulse 3s infinite ease-in-out;
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
-}
-
-.glowing-dot:nth-child(1) {
-  top: 20%;
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.glowing-dot:nth-child(2) {
-  top: 60%;
-  right: 15%;
-  animation-delay: 1s;
-  background: #8b5cf6;
-  box-shadow: 0 0 10px rgba(139, 92, 246, 0.8);
-}
-
-.glowing-dot:nth-child(3) {
-  bottom: 30%;
-  left: 20%;
-  animation-delay: 2s;
-  background: #ec4899;
-  box-shadow: 0 0 10px rgba(236, 72, 153, 0.8);
-}
-
-.glowing-dot:nth-child(4) {
-  top: 40%;
-  right: 30%;
-  animation-delay: 0.5s;
-  background: #f59e0b;
-  box-shadow: 0 0 10px rgba(245, 158, 11, 0.8);
-}
-
-.glowing-dot:nth-child(5) {
-  bottom: 60%;
-  left: 60%;
-  animation-delay: 1.5s;
-  background: #10b981;
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
-}
-
-@keyframes glow-pulse {
+@keyframes quantum-probability {
   0%, 100% {
-    transform: scale(1);
-    opacity: 0.6;
+    transform: scale(0.6) rotate(0deg);
+    opacity: 0.5;
   }
-  50% {
-    transform: scale(1.5);
+  33% {
+    transform: scale(1.8) rotate(120deg);
     opacity: 1;
   }
-}
-
-/* Dynamic Animated Backgrounds */
-.animated-bg {
-  position: relative;
-  overflow: hidden;
-}
-
-.animated-bg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  background: linear-gradient(45deg, #0f0f0f, #1a1a1a, #0f0f0f);
-  background-size: 400% 400%;
-  animation: gradient-shift 8s ease infinite;
-}
-
-/* Floating orbs background */
-.floating-orbs {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(1px);
-  opacity: 0.25;
-  animation: orb-float 20s infinite linear;
-}
-
-.orb:nth-child(1) {
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
-  top: 10%;
-  left: 10%;
-  animation-delay: 0s;
-  animation-duration: 25s;
-}
-
-.orb:nth-child(2) {
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
-  top: 60%;
-  right: 15%;
-  animation-delay: -5s;
-  animation-duration: 30s;
-}
-
-.orb:nth-child(3) {
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, transparent 70%);
-  bottom: 20%;
-  left: 20%;
-  animation-delay: -10s;
-  animation-duration: 35s;
-}
-
-.orb:nth-child(4) {
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.3) 0%, transparent 70%);
-  top: 30%;
-  right: 30%;
-  animation-delay: -15s;
-  animation-duration: 40s;
-}
-
-@keyframes orb-float {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    transform: translate(50px, -30px) scale(1.1);
-  }
-  50% {
-    transform: translate(-20px, 40px) scale(0.9);
-  }
-  75% {
-    transform: translate(-40px, -20px) scale(1.05);
+  66% {
+    transform: scale(0.4) rotate(240deg);
+    opacity: 0.6;
   }
 }
 
-/* Geometric patterns background */
-.geometric-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.geometric-shape {
-  position: absolute;
-  opacity: 0.08;
-  animation: geometric-rotate 30s infinite linear;
-}
-
-.geometric-shape:nth-child(1) {
-  width: 100px;
-  height: 100px;
-  border: 2px solid #3b82f6;
-  top: 20%;
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.geometric-shape:nth-child(2) {
-  width: 80px;
-  height: 80px;
-  border: 2px solid #8b5cf6;
-  top: 70%;
-  right: 20%;
-  animation-delay: -10s;
-}
-
-.geometric-shape:nth-child(3) {
-  width: 120px;
-  height: 120px;
-  border: 2px solid #ec4899;
-  bottom: 30%;
-  left: 30%;
-  animation-delay: -20s;
-}
-
-.geometric-shape:nth-child(4) {
-  width: 60px;
-  height: 60px;
-  border: 2px solid #f59e0b;
-  top: 40%;
-  right: 40%;
-  animation-delay: -5s;
-}
-
-@keyframes geometric-rotate {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.2);
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
-  }
-}
-
-/* Wave background */
-.wave-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 200%;
-  height: 100px;
-  background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.3), transparent);
-  animation: wave-move 10s infinite linear;
-}
-
-.wave:nth-child(2) {
-  animation-delay: -2s;
-  opacity: 0.5;
-  height: 80px;
-}
-
-.wave:nth-child(3) {
-  animation-delay: -4s;
-  opacity: 0.3;
-  height: 60px;
-}
-
-@keyframes wave-move {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-/* Matrix rain effect */
-.matrix-rain {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-  opacity: 0.15;
-}
-
-.matrix-column {
-  position: absolute;
-  top: -100%;
-  color: #3b82f6;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  animation: matrix-fall 8s infinite linear;
-}
-
-@keyframes matrix-fall {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100vh);
-  }
-}
-
-/* Gradient mesh background */
-.gradient-mesh {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 90% 90%, rgba(245, 158, 11, 0.25) 0%, transparent 50%);
-  animation: mesh-shift 15s ease-in-out infinite;
-}
-
-@keyframes mesh-shift {
-  0%, 100% {
-    background-position: 0% 0%, 100% 100%, 50% 50%, 100% 0%;
-  }
-  25% {
-    background-position: 100% 0%, 0% 100%, 100% 50%, 0% 100%;
-  }
-  50% {
-    background-position: 100% 100%, 0% 0%, 50% 100%, 100% 100%;
-  }
-  75% {
-    background-position: 0% 100%, 100% 0%, 0% 50%, 0% 0%;
-  }
+/* Remove all the old background elements */
+.global-floating-shapes,
+.floating-triangle,
+.floating-square,
+.floating-circle,
+.particle,
+.energy-wave,
+.global-glowing-dots,
+.glowing-dot,
+.floating-orbs,
+.geometric-bg,
+.wave-bg,
+.matrix-rain,
+.gradient-mesh,
+.animated-lines,
+.floating-squares,
+.pulsing-circles {
+  display: none !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -562,7 +637,65 @@ a {
     color: white;
     background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
     min-height: 100vh;
+    position: relative;
   }
+  
+  /* Global animated background elements - applied to body */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+  }
+  
+  /* Global animated background elements */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 90% 90%, rgba(245, 158, 11, 0.3) 0%, transparent 50%);
+    animation: mesh-shift 20s ease-in-out infinite;
+  }
+  
+  /* Global glowing dots container */
+body {
+  position: relative;
+}
+
+body > .global-glowing-dots {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Ensure glowing dots are properly sized */
+.global-glowing-dots .glowing-dot {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: #3b82f6;
+  border-radius: 50%;
+  animation: glow-pulse 4s infinite ease-in-out;
+  box-shadow: 0 0 80px rgba(59, 130, 246, 0.9);
+}
+  
   html,body{
     width: 100%;
     height: 100%;

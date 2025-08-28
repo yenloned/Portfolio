@@ -2,12 +2,14 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react';
 import { Element } from "react-scroll";
 import project from "../data/project.json"
+import tagCategoriesData from "../data/tagCategories.json"
 import { ProjectImage } from "../function/ProjectImage";
 
 const Project = () => {
     const [finding_tag, setFinding_tag] = useState("")
     const [visibleProjects, setVisibleProjects] = useState<number[]>([]);
     const [showAll, setShowAll] = useState(false);
+    const [showFilterDropdown, setShowFilterDropdown] = useState(false);
     const initialShowCount = 6; // Show first 6 items initially
 
     // Effect for filter changes - reset everything
@@ -74,6 +76,39 @@ const Project = () => {
 
     const all_tags_array = Array.from(all_tags_map, ([key, value]) => (value))
 
+    // Create tag category mapping from external JSON file
+    const createTagCategoryMapping = () => {
+        const mapping: { [key: string]: string } = {};
+        const tagCategories = tagCategoriesData as { tagCategories: { [key: string]: string[] } };
+        Object.entries(tagCategories.tagCategories).forEach(([category, tags]) => {
+            tags.forEach(tag => {
+                mapping[tag] = category;
+            });
+        });
+        return mapping;
+    };
+
+    const tagCategoryMapping = createTagCategoryMapping();
+
+    // Dynamic tag categorization using the mapping
+    const categorizeTags = (tags: string[]) => {
+        const categories: { [key: string]: string[] } = {};
+        
+        tags.forEach(tag => {
+            const category = tagCategoryMapping[tag] || "Other";
+            
+            if (!categories[category]) {
+                categories[category] = [];
+            }
+            categories[category].push(tag);
+        });
+        
+        return categories;
+    };
+
+    const tagCategories = categorizeTags(all_tags_array);
+    const allCategorizedTags = Object.values(tagCategories).flat();
+
     const ifFound = (array: any[], target: any) => {
         if(target == "") return true;
         return array.some((temp) => temp === target);
@@ -81,6 +116,40 @@ const Project = () => {
 
     const filteredProjects = project.project.filter(project => ifFound(project.tags, finding_tag));
     const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, initialShowCount);
+
+    // Get category for a tag
+    const getTagCategory = (tag: string) => {
+        for (const [category, tags] of Object.entries(tagCategories)) {
+            if (tags.includes(tag)) return category;
+        }
+        return "Other";
+    };
+
+    // Get all available categories based on current projects
+    const getAvailableCategories = () => {
+        const usedTags = new Set<string>();
+        project.project.forEach(project => {
+            project.tags.forEach(tag => usedTags.add(tag));
+        });
+
+        const availableCategories: { [key: string]: string[] } = {};
+        Object.entries(tagCategories).forEach(([category, tags]) => {
+            const availableTags = tags.filter(tag => usedTags.has(tag));
+            if (availableTags.length > 0) {
+                availableCategories[category] = availableTags;
+            }
+        });
+
+        // Add uncategorized tags
+        const uncategorizedTags = Array.from(usedTags).filter(tag => !allCategorizedTags.includes(tag));
+        if (uncategorizedTags.length > 0) {
+            availableCategories["Other"] = uncategorizedTags;
+        }
+
+        return availableCategories;
+    };
+
+    const availableCategories = getAvailableCategories();
 
     return(
         <Element name="Project" className='relative py-20 px-4 md:px-8 lg:px-16 animated-bg'>
@@ -97,6 +166,25 @@ const Project = () => {
                 <div className="glowing-dot"></div>
                 <div className="glowing-dot"></div>
                 <div className="glowing-dot"></div>
+            </div>
+            <div className="animated-lines">
+                <div className="animated-line"></div>
+                <div className="animated-line"></div>
+                <div className="animated-line"></div>
+                <div className="animated-line"></div>
+            </div>
+            <div className="floating-squares">
+                <div className="floating-square"></div>
+                <div className="floating-square"></div>
+                <div className="floating-square"></div>
+                <div className="floating-square"></div>
+                <div className="floating-square"></div>
+            </div>
+            <div className="pulsing-circles">
+                <div className="pulsing-circle"></div>
+                <div className="pulsing-circle"></div>
+                <div className="pulsing-circle"></div>
+                <div className="pulsing-circle"></div>
             </div>
             <div className="matrix-rain" id="matrix-rain"></div>
             {/* Background decoration */}
@@ -117,31 +205,83 @@ const Project = () => {
                     </p>
                 </div>
 
-                {/* Filter Tags */}
-                <div className='flex flex-wrap gap-3 justify-center mb-12'>
-                    <button 
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
-                            finding_tag === "" 
-                                ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-glow" 
-                                : "bg-background-300 text-gray-400 border border-gray-600 hover:border-purple-500 hover:text-purple-400"
-                        }`}
-                        onClick={() => setFinding_tag("")}
-                    >
-                        All Projects
-                    </button>
-                    {all_tags_array.map((tag) => (
+                {/* Enhanced Filter System */}
+                <div className='mb-12'>
+                    {/* All Projects Button */}
+                    <div className="text-center mb-6">
                         <button 
-                            key={tag}
-                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
-                                finding_tag === tag 
+                            className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
+                                finding_tag === "" 
                                     ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-glow" 
                                     : "bg-background-300 text-gray-400 border border-gray-600 hover:border-purple-500 hover:text-purple-400"
                             }`}
-                            onClick={() => setFinding_tag(tag)}
+                            onClick={() => setFinding_tag("")}
                         >
-                            {tag}
+                            All Projects
                         </button>
-                    ))}
+                    </div>
+
+                    {/* Filter Dropdown */}
+                    <div className="relative max-w-md mx-auto">
+                        <button 
+                            className="w-full px-4 py-3 bg-background-300 border border-gray-600 rounded-lg text-gray-300 hover:border-purple-500 hover:text-purple-400 transition-all duration-300 flex items-center justify-between"
+                            onClick={() => setShowFilterDropdown(!showFilterDropdown)}
+                        >
+                            <span>{finding_tag || "Filter by category..."}</span>
+                            <svg 
+                                className={`w-5 h-5 transition-transform duration-300 ${showFilterDropdown ? 'rotate-180' : ''}`} 
+                                fill="none" 
+                                stroke="currentColor" 
+                                viewBox="0 0 24 24"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        {/* Dropdown Menu */}
+                        {showFilterDropdown && (
+                            <div className="absolute top-full left-0 right-0 mt-2 bg-background-400 border border-gray-600 rounded-lg shadow-xl z-50 max-h-96 overflow-y-auto">
+                                {Object.entries(availableCategories).map(([category, tags]) => (
+                                    <div key={category} className="border-b border-gray-600 last:border-b-0">
+                                        <div className="px-4 py-2 bg-background-500 text-purple-400 font-medium text-sm">
+                                            {category}
+                                        </div>
+                                        {tags.map((tag) => (
+                                            <button
+                                                key={tag}
+                                                className={`w-full text-left px-4 py-2 text-sm hover:bg-background-300 transition-colors duration-200 ${
+                                                    finding_tag === tag ? 'text-purple-400 bg-purple-500/20' : 'text-gray-300'
+                                                }`}
+                                                onClick={() => {
+                                                    setFinding_tag(tag);
+                                                    setShowFilterDropdown(false);
+                                                }}
+                                            >
+                                                {tag}
+                                            </button>
+                                        ))}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Active Filter Display */}
+                    {finding_tag && (
+                        <div className="text-center mt-4">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 border border-purple-500/30 rounded-full">
+                                <span className="text-purple-400 text-sm">Filtered by: {finding_tag}</span>
+                                <button 
+                                    onClick={() => setFinding_tag("")}
+                                    className="text-purple-400 hover:text-purple-300 transition-colors"
+                                >
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    )}
                 </div>
 
                 {/* Projects Grid */}
@@ -207,17 +347,19 @@ const Project = () => {
 
                                     {/* Action Buttons */}
                                     <div className='flex gap-3 mt-auto'>
-                                        <a 
-                                            href={project.github_link} 
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
-                                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-background-300 rounded-lg text-gray-300 hover:bg-background-100 hover:text-white transition-all duration-300 border border-gray-600 hover:border-gray-500"
-                                        >
-                                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
-                                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                                            </svg>
-                                            Code
-                                        </a>
+                                        {project.github_link && (
+                                            <a 
+                                                href={project.github_link} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-background-300 rounded-lg text-gray-300 hover:bg-background-100 hover:text-white transition-all duration-300 border border-gray-600 hover:border-gray-500"
+                                            >
+                                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+                                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                                </svg>
+                                                Code
+                                            </a>
+                                        )}
                                         
                                         {project.demo_link && (
                                             <a 
