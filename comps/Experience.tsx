@@ -8,11 +8,17 @@ import { ExperienceImage } from "../function/ExperienceImage";
 const Experience = () => {
     const [activeTab, setActiveTab] = useState('professional');
     const [visibleItems, setVisibleItems] = useState<number[]>([]);
+    const [showAll, setShowAll] = useState(false);
+    const initialShowCount = 3; // Show first 3 items initially
 
+    // Effect for tab changes - reset everything
     useEffect(() => {
-        // Reset visible items when tab changes
         setVisibleItems([]);
-        
+        setShowAll(false);
+    }, [activeTab]);
+
+    // Effect for observer - reinitialize when items change
+    useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -29,17 +35,43 @@ const Experience = () => {
         elements.forEach((el) => observer.observe(el));
 
         return () => observer.disconnect();
-    }, [activeTab]);
+    }, [activeTab, showAll]);
 
     const professionalExperiences = experience.experience.filter(exp => exp.category === 'professional');
     const volunteerExperiences = experience.experience.filter(exp => exp.category === 'volunteer');
 
     const getCurrentExperiences = () => {
+        const experiences = activeTab === 'professional' ? professionalExperiences : volunteerExperiences;
+        return showAll ? experiences : experiences.slice(0, initialShowCount);
+    };
+
+    const getCurrentExperiencesAll = () => {
         return activeTab === 'professional' ? professionalExperiences : volunteerExperiences;
     };
 
     return (
-        <Element name="Experience" className='relative py-20 px-4 md:px-8 lg:px-16 bg-gradient-dark'>
+        <Element name="Experience" className='relative py-20 px-4 md:px-8 lg:px-16 animated-bg'>
+            {/* Dynamic Background Elements */}
+            <div className="gradient-mesh"></div>
+            <div className="floating-orbs">
+                <div className="orb"></div>
+                <div className="orb"></div>
+                <div className="orb"></div>
+                <div className="orb"></div>
+            </div>
+            <div className="glowing-dots">
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+            </div>
+            <div className="geometric-bg">
+                <div className="geometric-shape"></div>
+                <div className="geometric-shape"></div>
+                <div className="geometric-shape"></div>
+                <div className="geometric-shape"></div>
+            </div>
             {/* Background decoration */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
@@ -192,6 +224,28 @@ const Experience = () => {
                         </div>
                     ))}
                 </div>
+
+                {/* Show More/Less Button */}
+                {getCurrentExperiencesAll().length > initialShowCount && (
+                    <div className="text-center mt-12">
+                        <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-glow hover:shadow-lg"
+                        >
+                            <div className="flex items-center gap-3">
+                                <span>{showAll ? 'Show Less' : `Show ${getCurrentExperiencesAll().length - initialShowCount} More`}</span>
+                                <svg 
+                                    className={`w-5 h-5 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                )}
 
                 {/* Empty State */}
                 {getCurrentExperiences().length === 0 && (

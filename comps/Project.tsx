@@ -7,11 +7,17 @@ import { ProjectImage } from "../function/ProjectImage";
 const Project = () => {
     const [finding_tag, setFinding_tag] = useState("")
     const [visibleProjects, setVisibleProjects] = useState<number[]>([]);
+    const [showAll, setShowAll] = useState(false);
+    const initialShowCount = 6; // Show first 6 items initially
 
+    // Effect for filter changes - reset everything
     useEffect(() => {
-        // Reset visible projects when filter changes
         setVisibleProjects([]);
-        
+        setShowAll(false);
+    }, [finding_tag]);
+
+    // Effect for observer - reinitialize when items change
+    useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -28,7 +34,36 @@ const Project = () => {
         elements.forEach((el) => observer.observe(el));
 
         return () => observer.disconnect();
-    }, [finding_tag]);
+    }, [finding_tag, showAll]);
+
+    // Matrix rain effect
+    useEffect(() => {
+        const matrixContainer = document.getElementById('matrix-rain');
+        if (!matrixContainer) return;
+
+        const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+        const columns = Math.floor(window.innerWidth / 20);
+        
+        for (let i = 0; i < columns; i++) {
+            const column = document.createElement('div');
+            column.className = 'matrix-column';
+            column.style.left = `${i * 20}px`;
+            column.style.animationDelay = `${Math.random() * 8}s`;
+            column.style.animationDuration = `${8 + Math.random() * 4}s`;
+            
+            let text = '';
+            for (let j = 0; j < 20; j++) {
+                text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
+            }
+            column.innerHTML = text;
+            
+            matrixContainer.appendChild(column);
+        }
+
+        return () => {
+            matrixContainer.innerHTML = '';
+        };
+    }, []);
 
     let all_tags_map = new Map();
     project.project.map((project) => {
@@ -45,9 +80,25 @@ const Project = () => {
     }
 
     const filteredProjects = project.project.filter(project => ifFound(project.tags, finding_tag));
+    const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, initialShowCount);
 
     return(
-        <Element name="Project" className='relative py-20 px-4 md:px-8 lg:px-16 bg-background-200'>
+        <Element name="Project" className='relative py-20 px-4 md:px-8 lg:px-16 animated-bg'>
+            {/* Dynamic Background Elements */}
+            <div className="gradient-mesh"></div>
+            <div className="wave-bg">
+                <div className="wave"></div>
+                <div className="wave"></div>
+                <div className="wave"></div>
+            </div>
+            <div className="glowing-dots">
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+            </div>
+            <div className="matrix-rain" id="matrix-rain"></div>
             {/* Background decoration */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500/20 to-transparent"></div>
@@ -95,7 +146,7 @@ const Project = () => {
 
                 {/* Projects Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredProjects.map((project, index) => (
+                    {displayedProjects.map((project, index) => (
                         <div 
                             key={project.name}
                             data-index={index}
@@ -187,6 +238,28 @@ const Project = () => {
                         </div>
                     ))}
                 </div>
+
+                {/* Show More/Less Button */}
+                {filteredProjects.length > initialShowCount && (
+                    <div className="text-center mt-12">
+                        <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-glow hover:shadow-lg"
+                        >
+                            <div className="flex items-center gap-3">
+                                <span>{showAll ? 'Show Less' : `Show ${filteredProjects.length - initialShowCount} More`}</span>
+                                <svg 
+                                    className={`w-5 h-5 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                )}
 
                 {/* More Projects Coming */}
                 <div className='mt-16 text-center'>

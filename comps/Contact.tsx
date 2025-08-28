@@ -64,7 +64,27 @@ const Contact = () => {
     ];
 
     return(
-        <Element name="Contact" className='relative py-20 px-4 md:px-8 lg:px-16 bg-background-200'>
+        <Element name="Contact" className='relative py-20 px-4 md:px-8 lg:px-16 animated-bg'>
+            {/* Dynamic Background Elements */}
+            <div className="gradient-mesh"></div>
+            <div className="wave-bg">
+                <div className="wave"></div>
+                <div className="wave"></div>
+                <div className="wave"></div>
+            </div>
+            <div className="glowing-dots">
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+            </div>
+            <div className="geometric-bg">
+                <div className="geometric-shape"></div>
+                <div className="geometric-shape"></div>
+                <div className="geometric-shape"></div>
+                <div className="geometric-shape"></div>
+            </div>
             {/* Background decoration */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-pink-500/20 to-transparent"></div>

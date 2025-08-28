@@ -35,7 +35,13 @@ const Navbar = () => {
                 navBar 
                     ? "glass backdrop-blur-md border-b border-gray-700/50" 
                     : "bg-transparent"
-            }`}>
+            } animated-bg`}>
+                {/* Dynamic Background Elements for Navbar */}
+                <div className="gradient-mesh"></div>
+                <div className="floating-orbs">
+                    <div className="orb"></div>
+                    <div className="orb"></div>
+                </div>
                 <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
                     <div className={`flex items-center justify-between py-4 transition-all duration-500 ${
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'

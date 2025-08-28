@@ -12,17 +12,36 @@ const Header = () => {
 
     return(
         <>
-            <div className='relative min-h-screen flex items-center justify-center overflow-hidden'>
+            <div className='relative min-h-screen flex items-center justify-center overflow-hidden animated-bg'>
+                {/* Dynamic Background Elements */}
+                <div className="gradient-mesh"></div>
+                <div className="floating-orbs">
+                    <div className="orb"></div>
+                    <div className="orb"></div>
+                    <div className="orb"></div>
+                    <div className="orb"></div>
+                </div>
+                <div className="geometric-bg">
+                    <div className="geometric-shape"></div>
+                    <div className="geometric-shape"></div>
+                    <div className="geometric-shape"></div>
+                    <div className="geometric-shape"></div>
+                </div>
+                <div className="wave-bg">
+                    <div className="wave"></div>
+                    <div className="wave"></div>
+                    <div className="wave"></div>
+                </div>
+                <div className="glowing-dots">
+                    <div className="glowing-dot"></div>
+                    <div className="glowing-dot"></div>
+                    <div className="glowing-dot"></div>
+                    <div className="glowing-dot"></div>
+                    <div className="glowing-dot"></div>
+                </div>
+                
                 {/* Animated background gradient */}
                 <div className="absolute inset-0 bg-gradient-dark opacity-90"></div>
-                
-                {/* Floating geometric shapes */}
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-20 left-20 w-32 h-32 border border-blue-500/20 rounded-full animate-float"></div>
-                    <div className="absolute top-40 right-32 w-24 h-24 border border-purple-500/20 rotate-45 animate-float" style={{animationDelay: '1s'}}></div>
-                    <div className="absolute bottom-32 left-1/4 w-16 h-16 border border-pink-500/20 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
-                    <div className="absolute bottom-20 right-20 w-20 h-20 border border-blue-500/20 rotate-45 animate-float" style={{animationDelay: '0.5s'}}></div>
-                </div>
 
                 <div className={`relative z-10 mx-4 md:mx-auto max-w-6xl text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 

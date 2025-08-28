@@ -11,7 +11,28 @@ const Footer = () => {
 
     return (
         <>
-            <div className="relative bg-background-400 py-16 px-4 md:px-8 lg:px-16">
+            <div className="relative bg-background-400 py-16 px-4 md:px-8 lg:px-16 animated-bg">
+                {/* Dynamic Background Elements */}
+                <div className="gradient-mesh"></div>
+                            <div className="floating-orbs">
+                <div className="orb"></div>
+                <div className="orb"></div>
+                <div className="orb"></div>
+                <div className="orb"></div>
+            </div>
+            <div className="glowing-dots">
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+                <div className="glowing-dot"></div>
+            </div>
+                <div className="geometric-bg">
+                    <div className="geometric-shape"></div>
+                    <div className="geometric-shape"></div>
+                    <div className="geometric-shape"></div>
+                    <div className="geometric-shape"></div>
+                </div>
                 {/* Background decoration */}
                 <div className="absolute inset-0 overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
