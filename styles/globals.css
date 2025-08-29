@@ -24,6 +24,7 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 a {
@@ -628,6 +629,58 @@ body > .global-quantum-particles {
   display: none !important;
 }
 
+/* Responsive optimizations for mobile devices */
+@media (max-width: 768px) {
+  /* Reduce animation intensity on mobile for better performance */
+  .global-quantum-particles .quantum-particle {
+    width: 15px;
+    height: 15px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+  }
+  
+  .global-quantum-particles .wave-function {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .global-quantum-particles .tunnel-effect {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .global-quantum-particles .probability-cloud {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .global-quantum-particles .entanglement-line {
+    height: 4px;
+  }
+  
+  /* Reduce animation duration for better performance */
+  @keyframes quantum-field-shift {
+    0%, 100% {
+      background-position: 0% 0%, 100% 100%, 50% 50%, 100% 0%;
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      background-position: 100% 100%, 0% 0%, 50% 100%, 100% 100%;
+      transform: scale(0.8) rotate(180deg);
+    }
+  }
+  
+  @keyframes quantum-wave-function {
+    0%, 100% {
+      opacity: 0.5;
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: rotate(180deg) scale(1.2);
+    }
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -701,5 +754,39 @@ body > .global-glowing-dots {
     height: 100%;
     margin: 0px;
     padding: 0px;
+  }
+}
+
+/* Additional responsive utilities */
+@media (max-width: 640px) {
+  .glass {
+    backdrop-filter: blur(5px);
+  }
+  
+  /* Reduce text sizes for better mobile readability */
+  .gradient-text {
+    background-size: 200% 200%;
+  }
+}
+
+/* Ensure smooth scrolling on all devices */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(45deg, #ffffff, #cccccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
